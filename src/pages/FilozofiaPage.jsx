@@ -7,10 +7,10 @@ import { PageHero, Eyebrow, ContentSection, MiniCard } from '../components/Primi
 
 function AttendanceGrid() {
   const rows = [
-    { name: 'M. Blaho',  cells: [true, true, false, true, true, true] },
-    { name: 'R. Kováč',  cells: [true, false, true, true, false, true] },
-    { name: 'J. Horváth',cells: [true, true, true, false, true, true] },
-    { name: 'P. Novák',  cells: [false, true, true, true, true, true] },
+    { name: 'M. Blaho',   cells: [true,  true,  false, true,  true,  true ] },
+    { name: 'R. Kováč',   cells: [true,  false, true,  true,  false, true ] },
+    { name: 'J. Horváth', cells: [true,  true,  true,  false, true,  true ] },
+    { name: 'P. Novák',   cells: [false, true,  true,  true,  true,  true ] },
   ]
   return (
     <MiniCard>
@@ -94,6 +94,49 @@ function TrophyVisual() {
   )
 }
 
+// ── PillarLabel — replaces small eyebrow for the three pillars ─────────────────
+
+function PillarLabel({ numeral, title }) {
+  return (
+    <div>
+      {/* Roman numeral — Lora italic green, large */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.5 }}
+        transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
+        style={{
+          fontSize: 'clamp(40px, 5vw, 56px)',
+          fontFamily: SERIF, fontStyle: 'italic', fontWeight: 400,
+          color: C.green, lineHeight: 1, marginBottom: 12,
+        }}
+      >
+        {numeral}
+      </motion.div>
+
+      {/* Title — Inter sans, wide letter-spacing */}
+      <div
+        style={{
+          fontSize: 'clamp(12px, 1.4vw, 14px)',
+          fontWeight: 700, letterSpacing: '0.42em',
+          textTransform: 'uppercase', color: C.black,
+        }}
+      >
+        {title}
+      </div>
+
+      {/* Green accent line */}
+      <div
+        style={{
+          width: 48, height: 1,
+          background: C.green,
+          margin: '24px 0 32px',
+        }}
+      />
+    </div>
+  )
+}
+
 // ── Page ───────────────────────────────────────────────────────────────────────
 
 export default function FilozofiaPage() {
@@ -107,17 +150,55 @@ export default function FilozofiaPage() {
         serifHeadline
       />
 
-      {/* PILLAR 1 — DISCIPLÍNA */}
+      {/* ═══ TRINITY CALLOUT ════════════════════════════════════════════════════ */}
+      <section style={{ padding: '80px 0', borderTop: `1px solid ${C.border}` }}>
+        <div style={{ maxWidth: 720, margin: '0 auto', padding: '0 40px', textAlign: 'center' }}>
+          <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
+
+            <Eyebrow style={{ marginBottom: 28 }}>— Tri princípy</Eyebrow>
+
+            {/* The trinity — Lora italic large, green separators */}
+            <div
+              style={{
+                fontSize: 'clamp(1.9rem, 4.5vw, 3rem)',
+                fontFamily: SERIF, fontWeight: 400,
+                lineHeight: 1.3, marginBottom: 24,
+                display: 'flex', flexWrap: 'wrap',
+                justifyContent: 'center', alignItems: 'baseline',
+              }}
+            >
+              <em style={{ color: C.black, fontStyle: 'italic' }}>Disciplína.</em>
+              <span style={{ color: C.green, fontStyle: 'normal', margin: '0 14px', fontFamily: SERIF }}>·</span>
+              <em style={{ color: C.black, fontStyle: 'italic' }}>Detail.</em>
+              <span style={{ color: C.green, fontStyle: 'normal', margin: '0 14px', fontFamily: SERIF }}>·</span>
+              <em style={{ color: C.green, fontStyle: 'italic' }}>Víťazstvo.</em>
+            </div>
+
+            <p
+              style={{
+                fontSize: 18, color: C.gray,
+                fontFamily: SERIF, fontStyle: 'italic',
+                margin: 0, lineHeight: 1.6,
+              }}
+            >
+              Tri slová. Tri princípy. Jedna filozofia.
+            </p>
+
+          </motion.div>
+        </div>
+      </section>
+
+      {/* ═══ PILLAR 1 — DISCIPLÍNA ══════════════════════════════════════════════ */}
       <ContentSection
-        eyebrow="— I. Disciplína"
+        label={<PillarLabel numeral="I." title="DISCIPLÍNA" />}
         headline="Nič sa nedeje náhodou. Tréner ktorý vie kedy, kto a prečo chýbal, vie čo má robiť ďalej."
         body="GameModel zaznamenáva každý tréning, každú dochádzku, každý detail. Aby si vždy vedel čo sa v tíme deje. Bez Excelových tabuliek. Bez chaotických WhatsApp skupín."
         visual={<AttendanceGrid />}
       />
 
-      {/* PILLAR 2 — DETAIL */}
+      {/* ═══ PILLAR 2 — DETAIL ══════════════════════════════════════════════════ */}
       <ContentSection
-        eyebrow="— II. Detail"
+        label={<PillarLabel numeral="II." title="DETAIL" />}
         headline="Rozdiel medzi priemerným a výnimočným klubom je v detailoch ktoré nikto nevidí."
         body="Štatistiky hráčov, hodnotenia zápasov, sledovanie talentov. Všetko v jednom mieste, prehľadne. Pretože detail rozhoduje — či pri scoutovaní, výbere zostavy, alebo dlhodobom rozvoji hráča."
         visual={<PlayerCard />}
@@ -125,15 +206,15 @@ export default function FilozofiaPage() {
         altBg
       />
 
-      {/* PILLAR 3 — VÍŤAZSTVO */}
+      {/* ═══ PILLAR 3 — VÍŤAZSTVO ═══════════════════════════════════════════════ */}
       <ContentSection
-        eyebrow="— III. Víťazstvo"
+        label={<PillarLabel numeral="III." title="VÍŤAZSTVO" />}
         headline="Víťazstvo nezačína na ihrisku. Začína v tom, ako klub funguje od pondelka do nedele."
         body="Šetríme trénerom hodiny administratívy týždenne. Aby sa mohli sústrediť na to, prečo prišli — futbal."
         visual={<TrophyVisual />}
       />
 
-      {/* CLOSING — story + quote */}
+      {/* ═══ CLOSING — story + quote ════════════════════════════════════════════ */}
       <section style={{ padding: '80px 0', borderTop: `1px solid ${C.border}` }}>
         <div style={{ maxWidth: 800, margin: '0 auto', padding: '0 32px' }}>
           <motion.div
@@ -189,7 +270,7 @@ export default function FilozofiaPage() {
         </div>
       </section>
 
-      {/* CLOSING CTA */}
+      {/* ═══ CLOSING CTA ════════════════════════════════════════════════════════ */}
       <section style={{ padding: '64px 0 80px', borderTop: `1px solid ${C.border}` }}>
         <div style={{ maxWidth: 560, margin: '0 auto', padding: '0 24px', textAlign: 'center' }}>
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>

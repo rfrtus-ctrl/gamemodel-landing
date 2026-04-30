@@ -182,7 +182,7 @@ export function PageHero({ eyebrow, headline, subtitle, serifHeadline = false })
 
 // ── ContentSection (detail pages alternating layout) ──────────────────────────
 
-export function ContentSection({ eyebrow, headline, body, visual, flipped = false, altBg = false, extra = null }) {
+export function ContentSection({ eyebrow, label, headline, body, visual, flipped = false, altBg = false, extra = null }) {
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
@@ -199,7 +199,10 @@ export function ContentSection({ eyebrow, headline, body, visual, flipped = fals
         <div className={`content-section-inner${flipped ? ' flipped' : ''}`}>
           {/* Text column */}
           <div style={{ flex: 1 }}>
-            <Eyebrow style={{ marginBottom: 16 }}>{eyebrow}</Eyebrow>
+            {label
+              ? label
+              : <Eyebrow style={{ marginBottom: 16 }}>{eyebrow}</Eyebrow>
+            }
             <div
               style={{
                 fontSize: 'clamp(1.25rem, 2.5vw, 1.75rem)',
