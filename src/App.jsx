@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import { motion } from 'framer-motion'
 import {
-  Users, User, CalendarCheck, Trophy,
+  Users, User, ClipboardCheck, Trophy,
   ArrowRight, Mail, ChevronRight,
 } from 'lucide-react'
 
@@ -28,7 +28,7 @@ const FEATURES = [
     desc:  'Kompletná evidencia hráčov, zdravotné záznamy, štatistiky a výkonnosť v jednom mieste.',
   },
   {
-    icon: CalendarCheck,
+    icon: ClipboardCheck,
     color: 'text-teal-400',
     bg:    'bg-teal-500/10',
     glow:  'rgba(20,184,166,0.12)',
@@ -249,6 +249,45 @@ function DashboardMockup() {
             ))}
           </div>
 
+          {/* Live score widget */}
+          <div style={{
+            marginTop: 14,
+            background: '#161b22',
+            border: '1px solid rgba(34,197,94,0.18)',
+            borderRadius: 10, padding: '10px 13px',
+            display: 'flex', alignItems: 'center', justifyContent: 'space-between',
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 7 }}>
+              {/* Pulsing live dot */}
+              <span style={{ position: 'relative', width: 7, height: 7, flexShrink: 0 }}>
+                <span style={{
+                  position: 'absolute', inset: 0, borderRadius: '50%',
+                  background: '#22c55e',
+                  animation: 'livePing 1.5s ease-in-out infinite',
+                }} />
+                <span style={{
+                  position: 'absolute', inset: '1px', borderRadius: '50%',
+                  background: '#4ade80',
+                }} />
+              </span>
+              <span style={{ color: '#484f58', fontSize: 9, fontWeight: 600, letterSpacing: '0.07em', textTransform: 'uppercase' }}>
+                Posledný zápas
+              </span>
+            </div>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 6 }}>
+              <span style={{ color: '#8b949e', fontSize: 10 }}>FK Slovan U19</span>
+              <span style={{
+                display: 'flex', alignItems: 'center', gap: 4,
+                background: 'rgba(34,197,94,0.1)', border: '1px solid rgba(34,197,94,0.2)',
+                borderRadius: 6, padding: '2px 7px',
+                color: '#4ade80', fontWeight: 800, fontSize: 12, letterSpacing: '0.02em',
+              }}>
+                3 <span style={{ color: '#30363d', fontWeight: 400 }}>:</span> 2
+              </span>
+              <span style={{ color: '#8b949e', fontSize: 10 }}>FC Nitra U19</span>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -314,15 +353,44 @@ export default function App() {
           width: 900, height: 600,
           background: 'radial-gradient(ellipse at 50% 0%, rgba(34,197,94,0.07) 0%, transparent 65%)',
         }} />
-        {/* Subtle grid */}
+        {/* Subtle grid — slightly reduced so motion lines read cleanly */}
         <div style={{
           position: 'absolute', inset: 0,
           backgroundImage: [
-            'linear-gradient(rgba(255,255,255,0.013) 1px, transparent 1px)',
-            'linear-gradient(90deg, rgba(255,255,255,0.013) 1px, transparent 1px)',
+            'linear-gradient(rgba(255,255,255,0.009) 1px, transparent 1px)',
+            'linear-gradient(90deg, rgba(255,255,255,0.009) 1px, transparent 1px)',
           ].join(', '),
           backgroundSize: '60px 60px',
         }} />
+
+        {/* Diagonal motion lines — hero area only, slow drift */}
+        <div style={{
+          position: 'absolute', top: 0, left: 0, right: 0, height: '100vh',
+          overflow: 'hidden', pointerEvents: 'none',
+        }}>
+          <svg
+            width="100%" height="100%"
+            viewBox="0 0 1440 900"
+            preserveAspectRatio="xMidYMid slice"
+            style={{ animation: 'motionDrift 28s linear infinite', opacity: 1 }}
+          >
+            {[
+              { x1: 180,  y1: -60,  x2: -80,  y2: 960 },
+              { x1: 480,  y1: -60,  x2: 220,  y2: 960 },
+              { x1: 780,  y1: -60,  x2: 520,  y2: 960 },
+              { x1: 1100, y1: -60,  x2: 840,  y2: 960 },
+              { x1: 1380, y1: -60,  x2: 1120, y2: 960 },
+            ].map((l, i) => (
+              <line
+                key={i}
+                x1={l.x1} y1={l.y1} x2={l.x2} y2={l.y2}
+                stroke="#22c55e"
+                strokeWidth="1"
+                strokeOpacity="0.055"
+              />
+            ))}
+          </svg>
+        </div>
       </div>
 
       {/* ─────────────────────── NAVBAR ─────────────────────────────────────── */}
@@ -356,17 +424,34 @@ export default function App() {
           <div className="max-w-4xl mx-auto px-5 sm:px-8 text-center">
             <motion.div variants={heroStagger} initial="hidden" animate="show">
 
-              {/* Eyebrow badge */}
-              <motion.div variants={heroItem} className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full border text-sm font-medium mb-9 cursor-default" style={{
-                color: '#4ade80',
-                borderColor: 'rgba(74,222,128,0.2)',
-                background: 'rgba(34,197,94,0.06)',
-              }}>
-                <span
-                  className="w-1.5 h-1.5 rounded-full flex-shrink-0"
-                  style={{ background: '#22c55e', animation: 'pulse 2s ease-in-out infinite' }}
-                />
-                🚀&nbsp; Pripravujeme launch
+              {/* Eyebrow badge — sport live-indicator style */}
+              <motion.div
+                variants={heroItem}
+                className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border cursor-default"
+                style={{
+                  color: '#4ade80',
+                  borderColor: 'rgba(74,222,128,0.18)',
+                  background: 'rgba(34,197,94,0.05)',
+                  letterSpacing: '0.08em',
+                  fontSize: 11,
+                  fontWeight: 700,
+                  textTransform: 'uppercase',
+                  marginBottom: '2.25rem',
+                }}
+              >
+                {/* Pulsing live dot — scale + opacity like a broadcast signal */}
+                <span style={{ position: 'relative', width: 8, height: 8, flexShrink: 0 }}>
+                  <span style={{
+                    position: 'absolute', inset: 0, borderRadius: '50%',
+                    background: '#22c55e',
+                    animation: 'livePing 1.5s ease-in-out infinite',
+                  }} />
+                  <span style={{
+                    position: 'absolute', inset: '1px', borderRadius: '50%',
+                    background: '#4ade80',
+                  }} />
+                </span>
+                Budujeme produkt
               </motion.div>
 
               {/* Main headline */}
@@ -391,6 +476,8 @@ export default function App() {
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
+                  display: 'inline-block',
+                  transform: 'skewX(-5deg)',
                 }}>
                   Jednoducho.
                 </span>
@@ -479,7 +566,6 @@ export default function App() {
             >
               {/* Perspective + float wrapper */}
               <div style={{
-                transform: 'perspective(1200px) rotateX(5deg)',
                 transformOrigin: 'top center',
                 animation: 'float 5s ease-in-out infinite',
               }}>
