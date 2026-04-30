@@ -1,135 +1,21 @@
 <!DOCTYPE html>
 <html lang="sk">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GameModel — Manažment futbalového klubu</title>
-  <meta name="description" content="Profesionálny systém pre futbalové kluby. Tréneri, hráči, dochádzka, zápasy v jednom." />
-  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet" />
-  <style>
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    html, body {
-      height: 100%;
-    }
-
-    body {
-      font-family: 'Inter', system-ui, -apple-system, sans-serif;
-      background-color: #0f3d24;
-      color: #ffffff;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
-
-    main {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 3rem 1.5rem;
-    }
-
-    .container {
-      max-width: 640px;
-      width: 100%;
-      text-align: center;
-    }
-
-    .wordmark {
-      font-size: clamp(3rem, 10vw, 5.5rem);
-      font-weight: 800;
-      letter-spacing: -0.03em;
-      line-height: 1;
-      color: #ffffff;
-      margin-bottom: 1.5rem;
-    }
-
-    .wordmark span {
-      color: #4ade80;
-    }
-
-    .divider {
-      width: 48px;
-      height: 3px;
-      background: #4ade80;
-      border-radius: 2px;
-      margin: 0 auto 1.75rem;
-    }
-
-    .tagline {
-      font-size: clamp(1.1rem, 3.5vw, 1.375rem);
-      font-weight: 600;
-      color: #e2e8f0;
-      line-height: 1.4;
-      margin-bottom: 0.75rem;
-    }
-
-    .subtagline {
-      font-size: clamp(0.95rem, 2.5vw, 1.1rem);
-      font-weight: 400;
-      color: #94a3b8;
-      letter-spacing: 0.02em;
-      margin-bottom: 3rem;
-    }
-
-    .contact-link {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      color: #4ade80;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 600;
-      padding: 0.75rem 1.75rem;
-      border: 2px solid rgba(74, 222, 128, 0.4);
-      border-radius: 999px;
-      transition: background 0.2s, border-color 0.2s;
-    }
-
-    .contact-link:hover {
-      background: rgba(74, 222, 128, 0.1);
-      border-color: #4ade80;
-    }
-
-    .contact-link svg {
-      flex-shrink: 0;
-    }
-
-    footer {
-      padding: 1.5rem;
-      text-align: center;
-      color: #4a6b57;
-      font-size: 0.875rem;
-    }
-  </style>
-</head>
-<body>
-  <main>
-    <div class="container">
-      <h1 class="wordmark">Game<span>Model</span></h1>
-      <div class="divider"></div>
-      <p class="tagline">Tréneri, hráči, dochádzka, zápasy. Jednoducho.</p>
-      <p class="subtagline">Pripravujeme. Spustenie čoskoro.</p>
-      <a href="mailto:info@gamemodel.sk" class="contact-link">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-          <rect x="2" y="4" width="20" height="16" rx="2"/>
-          <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
-        </svg>
-        info@gamemodel.sk
-      </a>
-    </div>
-  </main>
-
-  <footer>
-    &copy; 2026 GameModel
-  </footer>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GameModel — Manažment futbalového klubu</title>
+    <meta name="description" content="Profesionálny systém pre futbalové kluby. Tréneri, hráči, dochádzka, zápasy v jednom. Vytvorené trénermi, pre trénerov." />
+    <meta property="og:title" content="GameModel — Manažment futbalového klubu" />
+    <meta property="og:description" content="Platforma pre futbalové kluby ktorá zjednodušuje každodenný manažment." />
+    <meta property="og:type" content="website" />
+    <meta name="twitter:card" content="summary" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
