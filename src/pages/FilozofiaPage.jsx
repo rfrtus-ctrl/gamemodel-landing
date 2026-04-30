@@ -151,9 +151,26 @@ export default function FilozofiaPage() {
                   margin: '0 0 20px',
                 }}
               >
-                „Vytvorili sme GameModel pretože ako tréneri sme cítili, že existujúce nástroje nás nepodporujú. Tak sme si urobili svoj."
+                „Vytvorili sme GameModel pretože sme cítili, že existujúce nástroje nás nepodporujú. Tak sme si urobili svoj."
               </blockquote>
-              <Eyebrow>— Štefan & Rado, zakladatelia</Eyebrow>
+              <p
+                style={{
+                  fontSize: 12, color: C.grayMid,
+                  fontFamily: SERIF, fontStyle: 'italic',
+                  margin: '0 0 16px',
+                }}
+              >
+                — Rado · Štefan · Tomáš · Gabo · Dávid
+              </p>
+              <p
+                style={{
+                  fontSize: 11, color: C.gray,
+                  fontFamily: SERIF, fontStyle: 'italic',
+                  letterSpacing: '0.12em', margin: 0,
+                }}
+              >
+                Cesta je cieľ
+              </p>
             </div>
 
             <div className="phil-divider" />
