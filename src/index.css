@@ -14,21 +14,76 @@
     font-family: 'Inter', system-ui, -apple-system, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: #080c08;
+    background: #f5f3ed;
   }
 }
 
-@keyframes livePing {
-  0%, 100% { transform: scale(1);   opacity: 0.9; }
-  50%       { transform: scale(2.2); opacity: 0; }
+/* Mockup float — includes perspective tilt so inline transform doesn't fight it */
+@keyframes floatMockup {
+  0%, 100% { transform: perspective(1200px) rotateX(2deg) translateY(0px); }
+  50%       { transform: perspective(1200px) rotateX(2deg) translateY(-8px); }
 }
 
-@keyframes motionDrift {
-  0%   { transform: translateY(0px); }
-  100% { transform: translateY(-40px); }
+/* Dignified pulse — slow, Rolex-style (opacity + subtle scale, no bounce) */
+@keyframes dignifiedPulse {
+  0%, 100% { opacity: 1;   transform: scale(1);   }
+  50%       { opacity: 0.3; transform: scale(0.75); }
 }
 
-@keyframes float {
-  0%, 100% { transform: perspective(1200px) rotateX(5deg) translateY(0px); }
-  50%       { transform: perspective(1200px) rotateX(5deg) translateY(-10px); }
+/* Responsive helpers for two-column layouts */
+.phil-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+.phil-divider {
+  height: 1px;
+  background: rgba(26, 26, 26, 0.15);
+  flex-shrink: 0;
+}
+@media (min-width: 768px) {
+  .phil-grid {
+    flex-direction: row;
+    align-items: stretch;
+    gap: 0;
+  }
+  .phil-divider {
+    width: 1px;
+    height: auto;
+    min-height: 120px;
+  }
+}
+
+.footer-main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 32px;
+}
+@media (min-width: 768px) {
+  .footer-main {
+    flex-direction: row;
+    align-items: center;
+    text-align: left;
+    justify-content: space-between;
+  }
+  .footer-main > *:last-child {
+    text-align: right;
+  }
+}
+
+.footer-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  text-align: center;
+}
+@media (min-width: 768px) {
+  .footer-bottom {
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+  }
 }
