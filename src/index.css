@@ -87,3 +87,27 @@
     text-align: left;
   }
 }
+
+/* ContentSection alternating layout (detail pages) */
+.content-section-inner {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+@media (min-width: 768px) {
+  .content-section-inner {
+    flex-direction: row;
+    gap: 72px;
+    align-items: center;
+  }
+  .content-section-inner.flipped {
+    flex-direction: row-reverse;
+  }
+}
+
+/* phil-grid paddings on desktop */
+@media (min-width: 768px) {
+  .phil-col-left  { padding-right: 40px; }
+  .phil-col-right { padding-left:  40px; }
+}
+
