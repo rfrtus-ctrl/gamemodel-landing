@@ -1,6 +1,6 @@
 import { ChevronRight } from 'lucide-react'
 import { C, SERIF } from '../design'
-import { GMLogo } from './Primitives'
+import { DiamondLogo, GameModelWordmark } from './Primitives'
 
 const SIDEBAR_MAIN = [
   { emoji: '🏠', label: 'Prehľad',  active: true  },
@@ -75,10 +75,8 @@ export default function DashboardMockup() {
       >
         {/* Left */}
         <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-          <GMLogo size={24} />
-          <span style={{ color: C.black, fontWeight: 600, fontSize: 14, fontFamily: SERIF, letterSpacing: '-0.01em' }}>
-            GameModel
-          </span>
+          <DiamondLogo size={20} />
+          <GameModelWordmark size={14} />
           <div style={{ width: 1, height: 16, background: C.border, margin: '0 4px' }} />
           <span style={{ color: C.grayLight, fontSize: 11, fontFamily: SERIF, fontStyle: 'italic' }}>
             Sezóna 2025/26
