@@ -24,21 +24,21 @@ const STATS = [
 
 const MATCHES = [
   {
-    team: 'First Team',
-    score: '2:0 vs Šaľa',
-    meta: '20. apr · 3-5-2',
-    win: true,
-  },
-  {
-    team: 'U17',
-    score: '0:2 @ Horné Saliby',
-    meta: '19. apr · 4-3-3',
+    team: 'FK Slovan Levice',
+    score: '0:1 vs Inter Bratislava',
+    meta: '20. apr · 4-3-3',
     win: false,
   },
   {
-    team: 'U15',
-    score: '3:1 vs Partizánske',
-    meta: '18. apr · 4-4-2',
+    team: 'AS Trenčín',
+    score: '0:2 vs ŠK Slovan Bratislava',
+    meta: '19. apr · 4-4-2',
+    win: false,
+  },
+  {
+    team: 'Prievidza',
+    score: '3:1 vs Senec',
+    meta: '18. apr · 3-5-2',
     win: true,
   },
 ]
