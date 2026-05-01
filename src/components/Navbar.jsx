@@ -65,7 +65,7 @@ export default function Navbar() {
             <span
               style={{
                 fontSize: 13, fontWeight: 600, letterSpacing: '0.2em',
-                textTransform: 'uppercase', fontFamily: SERIF, color: C.black,
+                textTransform: 'uppercase', fontFamily: SERIF, color: C.green,
               }}
             >
               Gamemodel

@@ -11,7 +11,7 @@ export function GMLogo({ size = 28 }) {
       style={{
         width: size, height: size,
         borderRadius: Math.round(size * 0.15),
-        background: C.black,
+        background: C.green,
         display: 'flex', alignItems: 'center', justifyContent: 'center',
         fontSize: Math.round(size * 0.34), fontWeight: 900,
         color: C.cream, letterSpacing: '-0.03em', flexShrink: 0,
