@@ -157,8 +157,8 @@ export default function DashboardMockup() {
           <div
             style={{
               padding: '4px 16px 6px',
-              fontSize: 9, fontWeight: 600, letterSpacing: '0.2em',
-              textTransform: 'uppercase', color: C.grayLight,
+              fontSize: 10, fontWeight: 600, letterSpacing: '0.2em',
+              textTransform: 'uppercase', color: C.grayMid,
             }}
           >
             Manažment
@@ -192,8 +192,8 @@ export default function DashboardMockup() {
             <div>
               <div
                 style={{
-                  fontSize: 9, fontWeight: 600, letterSpacing: '0.25em',
-                  textTransform: 'uppercase', color: C.grayLight, marginBottom: 4,
+                  fontSize: 10, fontWeight: 600, letterSpacing: '0.22em',
+                  textTransform: 'uppercase', color: C.grayMid, marginBottom: 4,
                 }}
               >
                 — Prehľad
@@ -233,7 +233,7 @@ export default function DashboardMockup() {
               >
                 <div
                   style={{
-                    color: C.grayLight, fontSize: 9, marginBottom: 5,
+                    color: C.grayMid, fontSize: 10, marginBottom: 5,
                     fontWeight: 600, letterSpacing: '0.1em', textTransform: 'uppercase',
                   }}
                 >
@@ -255,8 +255,8 @@ export default function DashboardMockup() {
           {/* Recent matches */}
           <div
             style={{
-              fontSize: 9, fontWeight: 600, letterSpacing: '0.2em',
-              textTransform: 'uppercase', color: C.grayLight, marginBottom: 8,
+              fontSize: 10, fontWeight: 600, letterSpacing: '0.2em',
+              textTransform: 'uppercase', color: C.grayMid, marginBottom: 8,
             }}
           >
             — Posledné zápasy

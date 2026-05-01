@@ -188,7 +188,7 @@ export default function HomePage() {
           >
             <p
               style={{
-                fontSize: 17, color: C.grayMid,
+                fontSize: 17, color: '#2c2c2c',
                 fontFamily: SERIF, fontStyle: 'italic', margin: 0,
               }}
             >
@@ -268,7 +268,7 @@ export default function HomePage() {
               <Eyebrow style={{ marginBottom: 20 }}>— Filozofia</Eyebrow>
               <blockquote
                 style={{
-                  fontSize: 15, lineHeight: 1.78, color: C.gray,
+                  fontSize: 16, lineHeight: 1.78, color: '#2c2c2c',
                   fontFamily: SERIF, fontStyle: 'italic',
                   margin: '0 0 16px',
                 }}
@@ -309,9 +309,9 @@ export default function HomePage() {
               </div>
               <p
                 style={{
-                  fontSize: 11, color: C.grayMid,
-                  letterSpacing: '0.09em', textTransform: 'uppercase',
-                  fontWeight: 500, margin: 0,
+                  fontSize: 12, color: C.black,
+                  letterSpacing: '0.25em', textTransform: 'uppercase',
+                  fontWeight: 600, margin: 0,
                 }}
               >
                 Priemerná dochádzka na tréningoch

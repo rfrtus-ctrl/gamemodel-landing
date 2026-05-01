@@ -18,7 +18,7 @@ export default function Footer() {
             </div>
             <p
               style={{
-                fontSize: 12, color: C.grayMid,
+                fontSize: 16, color: '#2c2c2c',
                 fontFamily: SERIF, fontStyle: 'italic',
                 lineHeight: 1.6, margin: 0,
               }}
@@ -38,8 +38,8 @@ export default function Footer() {
               <LiveDot size={6} />
               <span
                 style={{
-                  fontSize: 10, fontWeight: 700, letterSpacing: '0.28em',
-                  textTransform: 'uppercase', color: C.gray,
+                  fontSize: 12, fontWeight: 700, letterSpacing: '0.25em',
+                  textTransform: 'uppercase', color: C.black,
                 }}
               >
                 Pripravujeme launch
@@ -47,7 +47,7 @@ export default function Footer() {
             </div>
             <p
               style={{
-                fontSize: 11, color: C.grayMid,
+                fontSize: 13, color: '#2c2c2c',
                 fontFamily: SERIF, fontStyle: 'italic', margin: 0,
               }}
             >
@@ -83,7 +83,7 @@ export default function Footer() {
           padding: '20px 36px',
         }}
       >
-        <div className="footer-bottom" style={{ fontSize: 11, color: C.grayLight }}>
+        <div className="footer-bottom" style={{ fontSize: 12, color: C.grayMid }}>
           <span style={{ letterSpacing: '0.22em', textTransform: 'uppercase', fontWeight: 600 }}>
             Slovensko · Od 2026
           </span>

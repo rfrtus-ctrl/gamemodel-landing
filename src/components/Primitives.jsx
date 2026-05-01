@@ -67,8 +67,8 @@ export function Eyebrow({ children, style: s = {}, className = '' }) {
     <div
       className={className}
       style={{
-        fontSize: 10, fontWeight: 600, letterSpacing: '0.38em',
-        textTransform: 'uppercase', color: C.grayMid,
+        fontSize: 12, fontWeight: 600, letterSpacing: '0.25em',
+        textTransform: 'uppercase', color: C.black,
         ...s,
       }}
     >
@@ -204,7 +204,7 @@ export function PageHero({ eyebrow, headline, subtitle, serifHeadline = false })
         {subtitle && (
           <p
             style={{
-              fontSize: 18, lineHeight: 1.7, color: C.gray,
+              fontSize: 18, lineHeight: 1.7, color: '#2c2c2c',
               fontFamily: SERIF, fontStyle: 'italic',
               maxWidth: 500, margin: '0 auto',
             }}
