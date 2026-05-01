@@ -64,8 +64,9 @@ export default function Navbar() {
             <GMLogo size={26} />
             <span
               style={{
-                fontSize: 13, fontWeight: 600, letterSpacing: '0.2em',
+                fontSize: 13, fontWeight: 800, letterSpacing: '0.2em',
                 textTransform: 'uppercase', fontFamily: SERIF, color: C.green,
+                WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale',
               }}
             >
               Gamemodel
