@@ -23,24 +23,9 @@ const STATS = [
 ]
 
 const MATCHES = [
-  {
-    team: 'FK Slovan Levice',
-    score: '0:1 vs Inter Bratislava',
-    meta: '20. apr · 4-3-3',
-    win: false,
-  },
-  {
-    team: 'AS Trenčín',
-    score: '0:2 vs ŠK Slovan Bratislava',
-    meta: '19. apr · 4-4-2',
-    win: false,
-  },
-  {
-    team: 'Prievidza',
-    score: '3:1 vs Senec',
-    meta: '18. apr · 3-5-2',
-    win: true,
-  },
+  { home: 'FK Slovan Levice', away: 'Inter Bratislava',     score: '0:1', meta: '20. apr · 4-3-3', win: false },
+  { home: 'AS Trenčín',       away: 'ŠK Slovan Bratislava', score: '0:2', meta: '19. apr · 4-4-2', win: false },
+  { home: 'Prievidza',        away: 'Senec',                score: '3:1', meta: '18. apr · 3-5-2', win: true  },
 ]
 
 const LANG_PILLS = ['SK', 'EN', 'ES']
@@ -271,10 +256,10 @@ export default function DashboardMockup() {
           >
             {MATCHES.map((m, i) => (
               <div
-                key={m.team}
+                key={m.home}
                 style={{
                   padding: '8px 12px',
-                  display: 'flex', alignItems: 'center', gap: 9,
+                  display: 'flex', alignItems: 'center', gap: 8,
                   borderBottom: i < MATCHES.length - 1 ? `1px solid ${C.border}` : 'none',
                 }}
               >
@@ -282,18 +267,27 @@ export default function DashboardMockup() {
                 <div
                   style={{
                     width: 7, height: 7, borderRadius: '50%', flexShrink: 0,
-                    background: m.win ? C.green : C.grayLight,
-                    opacity: m.win ? 0.85 : 0.4,
+                    background: m.win ? C.green : '#888',
                   }}
                 />
-                <span style={{ flex: 1, color: C.black, fontSize: 11 }}>
-                  <strong style={{ fontWeight: 600 }}>{m.team}</strong>
-                  {' — '}
+                {/* Teams — grows to fill space */}
+                <span style={{ flex: 1, color: C.black, fontSize: 11, minWidth: 0, whiteSpace: 'nowrap', overflow: 'hidden', textOverflow: 'ellipsis' }}>
+                  <strong style={{ fontWeight: 600 }}>{m.home}</strong>
+                  <span style={{ color: C.grayMid }}>{' — '}</span>
+                  <span style={{ fontWeight: 400 }}>{m.away}</span>
+                </span>
+                {/* Score — fixed width, vertically aligned */}
+                <span style={{
+                  width: 34, textAlign: 'right', flexShrink: 0,
+                  fontSize: 11, fontWeight: 700,
+                  color: m.win ? C.green : C.black,
+                }}>
                   {m.score}
                 </span>
+                {/* Date · formation */}
                 <span
                   style={{
-                    color: C.grayMid, fontSize: 10,
+                    color: C.grayMid, fontSize: 10, flexShrink: 0,
                     fontFamily: SERIF, fontStyle: 'italic',
                   }}
                 >
