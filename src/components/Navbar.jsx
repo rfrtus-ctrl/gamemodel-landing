@@ -14,6 +14,7 @@ const FUNKIE_ITEMS = [
 const NAV_LINKS = [
   { label: 'Filozofia', to: '/filozofia' },
   { label: 'Funkcie',   to: '/funkcie',  dropdown: true },
+  { label: 'Členstvo',  to: '/clenstvo' },
 ]
 
 export default function Navbar() {
@@ -235,6 +236,7 @@ export default function Navbar() {
           }}
         >
           <Link to="/filozofia" style={mobileLink}>Filozofia</Link>
+          <Link to="/clenstvo" style={mobileLink}>Členstvo</Link>
           <div>
             <button
               onClick={() => setMobileFunkcie(o => !o)}

@@ -1,8 +1,10 @@
 import { motion } from 'framer-motion'
 import { Users, User, ClipboardCheck, Trophy, ArrowRight } from 'lucide-react'
+import { Link } from 'react-router-dom'
 import { C, SERIF, EMAIL, DEMO_SUBJ, heroStagger, heroItem, pageTransition, fadeUp } from '../design'
 import { Eyebrow, LiveDot, FeatureCard } from '../components/Primitives'
 import DashboardMockup from '../components/DashboardMockup'
+import PricingCards from '../components/PricingCards'
 
 const FEATURES = [
   {
@@ -250,6 +252,69 @@ export default function HomePage() {
               <FeatureCard key={f.title} {...f} index={i} />
             ))}
           </div>
+
+        </div>
+      </section>
+
+      {/* ═══ PRICING ═════════════════════════════════════════════════════════════ */}
+      <section style={{ padding: '80px 0', borderTop: `1px solid ${C.border}` }}>
+        <div style={{ maxWidth: 1040, margin: '0 auto', padding: '0 24px' }}>
+
+          <motion.div
+            variants={fadeUp} initial="hidden" whileInView="show"
+            viewport={{ once: true }}
+            style={{ textAlign: 'center', marginBottom: 52 }}
+          >
+            <Eyebrow style={{ marginBottom: 20 }}>— Členstvo —</Eyebrow>
+            <h2
+              style={{
+                fontSize: 'clamp(1.9rem, 5vw, 3.5rem)',
+                fontWeight: 900, letterSpacing: '-0.035em',
+                color: C.black, margin: '0 0 16px', lineHeight: 1.05,
+              }}
+            >
+              Platíte podľa veľkosti klubu.
+            </h2>
+            <p
+              style={{
+                fontSize: 20, fontFamily: SERIF, fontStyle: 'italic',
+                color: C.gray, margin: 0, lineHeight: 1.45,
+              }}
+            >
+              Neobmedzene tímov. Neobmedzene trénerov. Spravodlivý pricing pre každý klub.
+            </p>
+          </motion.div>
+
+          <PricingCards />
+
+          <motion.div
+            variants={fadeUp} initial="hidden" whileInView="show"
+            viewport={{ once: true }}
+            style={{ textAlign: 'center', marginTop: 36 }}
+          >
+            <Link
+              to="/clenstvo"
+              style={{
+                fontSize: 12, fontWeight: 600, letterSpacing: '0.18em',
+                textTransform: 'uppercase', color: C.green, textDecoration: 'none',
+                display: 'inline-flex', alignItems: 'center', gap: 6,
+                transition: 'opacity 0.2s',
+              }}
+              onMouseEnter={e => (e.currentTarget.style.opacity = '0.7')}
+              onMouseLeave={e => (e.currentTarget.style.opacity = '1')}
+            >
+              Pre top kluby a federácie — Enterprise riešenia
+              <ArrowRight size={12} strokeWidth={2} />
+            </Link>
+            <p
+              style={{
+                fontSize: 13, fontFamily: SERIF, fontStyle: 'italic',
+                color: C.grayMid, margin: '14px 0 0',
+              }}
+            >
+              Ceny bez DPH. Pri ročnej platbe 2 mesiace zadarmo.
+            </p>
+          </motion.div>
 
         </div>
       </section>

@@ -105,6 +105,19 @@
   }
 }
 
+/* Pricing cards grid — 1 col mobile, 3 col desktop */
+.pricing-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 20px;
+  align-items: stretch;
+}
+@media (min-width: 860px) {
+  .pricing-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* phil-grid paddings on desktop */
 @media (min-width: 768px) {
   .phil-col-left  { padding-right: 40px; }

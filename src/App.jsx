@@ -10,6 +10,7 @@ import TreneriPage   from './pages/TreneriPage'
 import HraciPage     from './pages/HraciPage'
 import DochadzkaPage from './pages/DochadzkaPage'
 import ZapasyPage    from './pages/ZapasyPage'
+import ClenstvoPage  from './pages/ClenstvoPage'
 import { C } from './design'
 
 // AnimatePresence needs location inside BrowserRouter
@@ -25,6 +26,7 @@ function AnimatedRoutes() {
         <Route path="/funkcie/hraci"       element={<HraciPage />} />
         <Route path="/funkcie/dochadzka"   element={<DochadzkaPage />} />
         <Route path="/funkcie/zapasy"      element={<ZapasyPage />} />
+        <Route path="/clenstvo"            element={<ClenstvoPage />} />
       </Routes>
     </AnimatePresence>
   )
