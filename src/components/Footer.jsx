@@ -1,6 +1,6 @@
 import { Mail } from 'lucide-react'
 import { C, SERIF, EMAIL } from '../design'
-import { GMLogo, LiveDot } from './Primitives'
+import { DiamondLogo, GameModelWordmark, LiveDot } from './Primitives'
 
 export default function Footer() {
   return (
@@ -12,16 +12,9 @@ export default function Footer() {
 
           {/* Brand */}
           <div>
-            <div style={{ display: 'flex', alignItems: 'center', gap: 9, marginBottom: 8 }}>
-              <GMLogo size={24} />
-              <span
-                style={{
-                  fontSize: 13, fontWeight: 600, letterSpacing: '0.2em',
-                  textTransform: 'uppercase', fontFamily: SERIF, color: C.black,
-                }}
-              >
-                Gamemodel
-              </span>
+            <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 8 }}>
+              <DiamondLogo size={26} />
+              <GameModelWordmark size={18} />
             </div>
             <p
               style={{

@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ChevronDown, Menu, X } from 'lucide-react'
 import { C, SERIF, EMAIL, DEMO_SUBJ } from '../design'
-import { GMLogo } from './Primitives'
+import { DiamondLogo, GameModelWordmark } from './Primitives'
 
 const FUNKIE_ITEMS = [
   { label: 'Trénerský tím', to: '/funkcie/treneri' },
@@ -60,17 +60,9 @@ export default function Navbar() {
           }}
         >
           {/* Brand */}
-          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 10, textDecoration: 'none' }}>
-            <GMLogo size={26} />
-            <span
-              style={{
-                fontSize: 13, fontWeight: 800, letterSpacing: '0.2em',
-                textTransform: 'uppercase', fontFamily: SERIF, color: C.green,
-                WebkitFontSmoothing: 'antialiased', MozOsxFontSmoothing: 'grayscale',
-              }}
-            >
-              Gamemodel
-            </span>
+          <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: 12, textDecoration: 'none' }}>
+            <DiamondLogo size={28} />
+            <GameModelWordmark size={19} />
           </Link>
 
           {/* Desktop nav */}

@@ -3,7 +3,44 @@ import { Link } from 'react-router-dom'
 import { ArrowRight } from 'lucide-react'
 import { C, SERIF, fadeUp } from '../design'
 
-// ── GMLogo ─────────────────────────────────────────────────────────────────────
+// ── DiamondLogo ────────────────────────────────────────────────────────────────
+
+export function DiamondLogo({ size = 32, inverse = false }) {
+  const fill   = inverse ? C.cream  : C.green
+  const stroke = inverse ? C.green  : C.cream
+  return (
+    <svg
+      width={size} height={size}
+      viewBox="0 0 36 36"
+      style={{ flexShrink: 0, display: 'block' }}
+      aria-hidden="true"
+    >
+      <polygon points="18,3 33,18 18,33 3,18" fill={fill} />
+      <polygon points="18,9 27,18 18,27 9,18" fill="none" stroke={stroke} strokeWidth="1" />
+    </svg>
+  )
+}
+
+// ── GameModelWordmark ──────────────────────────────────────────────────────────
+
+export function GameModelWordmark({ size = 19, inverse = false }) {
+  const blackColor = inverse ? C.cream : C.black
+  return (
+    <span style={{ fontSize: size, lineHeight: 1, letterSpacing: '-0.03em', userSelect: 'none' }}>
+      <span style={{ fontFamily: 'Georgia, serif', fontWeight: 700, fontStyle: 'normal', color: blackColor }}>
+        Game
+      </span>
+      <span style={{ fontFamily: 'Georgia, serif', fontWeight: 700, fontStyle: 'italic', color: C.green }}>
+        Model
+      </span>
+      <span style={{ fontFamily: 'Georgia, serif', fontWeight: 700, fontStyle: 'normal', color: C.green }}>
+        .
+      </span>
+    </span>
+  )
+}
+
+// ── GMLogo (legacy — kept for DashboardMockup internal use) ───────────────────
 
 export function GMLogo({ size = 28 }) {
   return (
