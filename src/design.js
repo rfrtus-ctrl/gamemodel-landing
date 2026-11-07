@@ -16,7 +16,6 @@ export const C = {
 
 export const SERIF = "'Lora', Georgia, serif"
 export const EMAIL = 'info@gamemodel.sk'
-export const DEMO_SUBJ = encodeURIComponent('Demo request — GameModel')
 
 // ── Framer Motion variants ─────────────────────────────────────────────────────
 

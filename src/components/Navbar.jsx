@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { ChevronDown, Menu, X } from 'lucide-react'
-import { C, SERIF, EMAIL, DEMO_SUBJ } from '../design'
+import { C, SERIF, EMAIL } from '../design'
 import { DiamondLogo, GameModelWordmark } from './Primitives'
+import { useDemo } from './DemoRequest'
 
 const FUNKIE_ITEMS = [
   { label: 'Trénerský tím', to: '/funkcie/treneri' },
@@ -18,6 +19,7 @@ const NAV_LINKS = [
 ]
 
 export default function Navbar() {
+  const { openDemo } = useDemo()
   const [scrolled,     setScrolled]     = useState(false)
   const [dropdown,     setDropdown]     = useState(false)
   const [mobileOpen,   setMobileOpen]   = useState(false)
@@ -182,7 +184,7 @@ export default function Navbar() {
 
             {/* Demo button */}
             <a
-              href={`mailto:${EMAIL}?subject=${DEMO_SUBJ}`}
+              href="#demo" onClick={openDemo}
               style={{
                 background: C.black, color: C.cream,
                 fontSize: 10, fontWeight: 700, letterSpacing: '0.18em',
@@ -201,7 +203,7 @@ export default function Navbar() {
           {/* Mobile: burger + demo */}
           <div className="flex md:hidden items-center" style={{ gap: 12 }}>
             <a
-              href={`mailto:${EMAIL}?subject=${DEMO_SUBJ}`}
+              href="#demo" onClick={openDemo}
               style={{
                 background: C.black, color: C.cream,
                 fontSize: 10, fontWeight: 700, letterSpacing: '0.16em',

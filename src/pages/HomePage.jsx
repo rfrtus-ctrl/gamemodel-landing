@@ -1,10 +1,11 @@
 import { motion } from 'framer-motion'
 import { Users, User, ClipboardCheck, Trophy, ArrowRight } from 'lucide-react'
 import { Link } from 'react-router-dom'
-import { C, SERIF, EMAIL, DEMO_SUBJ, heroStagger, heroItem, pageTransition, fadeUp } from '../design'
+import { C, SERIF, EMAIL, heroStagger, heroItem, pageTransition, fadeUp } from '../design'
 import { Eyebrow, LiveDot, FeatureCard } from '../components/Primitives'
 import DashboardMockup from '../components/DashboardMockup'
 import PricingCards from '../components/PricingCards'
+import { useDemo } from '../components/DemoRequest'
 
 const FEATURES = [
   {
@@ -34,6 +35,7 @@ const FEATURES = [
 ]
 
 export default function HomePage() {
+  const { openDemo } = useDemo()
   return (
     <motion.div {...pageTransition}>
 
@@ -119,7 +121,7 @@ export default function HomePage() {
               }}
             >
               <a
-                href={`mailto:${EMAIL}?subject=${DEMO_SUBJ}`}
+                href="#demo" onClick={openDemo}
                 style={{
                   background: C.black, color: C.cream,
                   padding: '15px 30px', borderRadius: 2,

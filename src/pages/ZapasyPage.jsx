@@ -1,7 +1,8 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { C, SERIF, EMAIL, DEMO_SUBJ, pageTransition, fadeUp } from '../design'
+import { C, SERIF, EMAIL, pageTransition, fadeUp } from '../design'
 import { PageHero, ContentSection, MiniCard, Eyebrow } from '../components/Primitives'
+import { useDemo } from '../components/DemoRequest'
 
 // ── Visual fragments ───────────────────────────────────────────────────────────
 
@@ -112,6 +113,7 @@ function FormationVisual() {
 // ── Page ───────────────────────────────────────────────────────────────────────
 
 export default function ZapasyPage() {
+  const { openDemo } = useDemo()
   return (
     <motion.div {...pageTransition}>
 
@@ -174,7 +176,7 @@ export default function ZapasyPage() {
           <motion.div variants={fadeUp} initial="hidden" whileInView="show" viewport={{ once: true }}>
             <Eyebrow style={{ marginBottom: 20 }}>— Začnite dnes —</Eyebrow>
             <a
-              href={`mailto:${EMAIL}?subject=${DEMO_SUBJ}`}
+              href="#demo" onClick={openDemo}
               style={{
                 background: C.black, color: C.cream,
                 padding: '16px 32px', borderRadius: 2,

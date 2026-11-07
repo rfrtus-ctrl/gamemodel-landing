@@ -4,6 +4,7 @@ import { ArrowRight, Plus, Minus } from 'lucide-react'
 import { C, SERIF, EMAIL, pageTransition, fadeUp } from '../design'
 import { PageHero, Eyebrow, DiamondLogo } from '../components/Primitives'
 import PricingCards from '../components/PricingCards'
+import { useDemo } from '../components/DemoRequest'
 
 // ── Data ───────────────────────────────────────────────────────────────────────
 
@@ -130,6 +131,7 @@ function FaqAccordion() {
 // ── Page ───────────────────────────────────────────────────────────────────────
 
 export default function ClenstvoPage() {
+  const { openDemo } = useDemo()
   return (
     <motion.div {...pageTransition}>
 
@@ -379,7 +381,7 @@ export default function ClenstvoPage() {
               }}
             >
               <a
-                href={`mailto:${EMAIL}?subject=${encodeURIComponent('Demo GameModel')}`}
+                href="#demo" onClick={openDemo}
                 style={{
                   background: C.black, color: C.cream,
                   padding: '14px 28px', borderRadius: 3,
@@ -395,7 +397,7 @@ export default function ClenstvoPage() {
                 <ArrowRight size={13} strokeWidth={2} />
               </a>
               <a
-                href={`mailto:${EMAIL}?subject=${encodeURIComponent('Začneme zadarmo — GameModel')}`}
+                href="#demo" onClick={openDemo}
                 style={{
                   color: C.black, fontSize: 13, fontWeight: 500,
                   textDecoration: 'none', borderBottom: `1px solid ${C.black}`,
