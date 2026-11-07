@@ -1,8 +1,7 @@
 import { motion } from 'framer-motion'
 import { ArrowRight } from 'lucide-react'
-import { C, SERIF, EMAIL, pageTransition, fadeUp } from '../design'
+import { C, SERIF, EMAIL, pageTransition, fadeUp, REGISTER_URL } from '../design'
 import { PageHero, Eyebrow, ContentSection, MiniCard } from '../components/Primitives'
-import { useDemo } from '../components/DemoRequest'
 
 // ── Visual fragments ───────────────────────────────────────────────────────────
 
@@ -141,7 +140,6 @@ function PillarLabel({ numeral, title }) {
 // ── Page ───────────────────────────────────────────────────────────────────────
 
 export default function FilozofiaPage() {
-  const { openDemo } = useDemo()
   return (
     <motion.div {...pageTransition}>
 
@@ -286,7 +284,7 @@ export default function FilozofiaPage() {
               Vyskúšajte filozofiu v praxi
             </p>
             <a
-              href="#demo" onClick={openDemo}
+              href={REGISTER_URL}
               style={{
                 background: C.black, color: C.cream,
                 padding: '15px 30px', borderRadius: 2,

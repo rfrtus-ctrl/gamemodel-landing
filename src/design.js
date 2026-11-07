@@ -16,6 +16,8 @@ export const C = {
 
 export const SERIF = "'Lora', Georgia, serif"
 export const EMAIL = 'info@gamemodel.sk'
+// "Požiadať o demo" → club registration form in the app
+export const REGISTER_URL = import.meta.env.VITE_REGISTER_URL || 'https://app.gamemodel.sk/registracia'
 
 // ── Framer Motion variants ─────────────────────────────────────────────────────
 

@@ -1,10 +1,9 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { ArrowRight, Plus, Minus } from 'lucide-react'
-import { C, SERIF, EMAIL, pageTransition, fadeUp } from '../design'
+import { C, SERIF, EMAIL, pageTransition, fadeUp, REGISTER_URL } from '../design'
 import { PageHero, Eyebrow, DiamondLogo } from '../components/Primitives'
 import PricingCards from '../components/PricingCards'
-import { useDemo } from '../components/DemoRequest'
 
 // ── Data ───────────────────────────────────────────────────────────────────────
 
@@ -131,7 +130,6 @@ function FaqAccordion() {
 // ── Page ───────────────────────────────────────────────────────────────────────
 
 export default function ClenstvoPage() {
-  const { openDemo } = useDemo()
   return (
     <motion.div {...pageTransition}>
 
@@ -381,7 +379,7 @@ export default function ClenstvoPage() {
               }}
             >
               <a
-                href="#demo" onClick={openDemo}
+                href={REGISTER_URL}
                 style={{
                   background: C.black, color: C.cream,
                   padding: '14px 28px', borderRadius: 3,
@@ -397,7 +395,7 @@ export default function ClenstvoPage() {
                 <ArrowRight size={13} strokeWidth={2} />
               </a>
               <a
-                href="#demo" onClick={openDemo}
+                href={REGISTER_URL}
                 style={{
                   color: C.black, fontSize: 13, fontWeight: 500,
                   textDecoration: 'none', borderBottom: `1px solid ${C.black}`,

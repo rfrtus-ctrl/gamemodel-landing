@@ -12,7 +12,6 @@ import DochadzkaPage from './pages/DochadzkaPage'
 import ZapasyPage    from './pages/ZapasyPage'
 import ClenstvoPage  from './pages/ClenstvoPage'
 import { C } from './design'
-import { DemoProvider } from './components/DemoRequest'
 
 // AnimatePresence needs location inside BrowserRouter
 function AnimatedRoutes() {
@@ -36,7 +35,6 @@ function AnimatedRoutes() {
 export default function App() {
   return (
     <BrowserRouter>
-      <DemoProvider>
       <div style={{ background: C.bg, color: C.black, minHeight: '100vh' }}>
         <Navbar />
         {/* 64px top padding for fixed navbar */}
@@ -45,7 +43,6 @@ export default function App() {
         </div>
         <Footer />
       </div>
-      </DemoProvider>
     </BrowserRouter>
   )
 }
